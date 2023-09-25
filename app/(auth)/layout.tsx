@@ -1,0 +1,25 @@
+import { ClerkProvider, UserButton } from '@clerk/nextjs';
+import { Inter } from 'next/font/google';
+import '../globals.css';
+
+export const metadata = {
+  title: 'Threads',
+  description: 'Threads clone',
+};
+
+const font = Inter({ subsets: ['latin'] });
+
+const AuthLayout = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${font.className} bg-dark-1`}>
+          <UserButton />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
+  );
+};
+
+export default AuthLayout;
